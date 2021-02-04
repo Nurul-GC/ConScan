@@ -9,12 +9,13 @@
 # ******************************************************************************
 
 from datetime import datetime
-from time import sleep
 from platform import system
+from pprint import pformat
 from socket import gaierror, error
 import socket
 import subprocess
 import sys
+from time import sleep
 
 if __name__ == '__main__':
     try:
@@ -80,15 +81,17 @@ if __name__ == '__main__':
 
     print(f'\nEscaneamento Concluído em: {total}\nForam encontradas {len(listaPortas)} portas disponiveis..')
     print(f"""
-****************************************************
-*   [1] - IMPRIMIR A LISTA DE PORTAS DISPONÍVEIS   *
-*   [s] - TERMINAR PROGRAMA                        *
-****************************************************""")
+    ****************************************************
+    *   [1] - IMPRIMIR A LISTA DE PORTAS DISPONÍVEIS   *
+    *   [s] - TERMINAR PROGRAMA                        *
+    ****************************************************""")
     while True:
         r = input('\n> ')
         if r == '1':
-            pass
+            print(pformat(listaPortas))
+            exit(0)
         elif r == 's':
-            pass
+            print("- Terminando programa..")
+            exit(0)
         else:
             pass
